@@ -1,0 +1,42 @@
+[package]
+name = "rebi-gui"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+iced = { version = "0.14.0", features = ["tokio"] }
+rust-ini = "0.21"
+rfd = "0.17.2"
+directories = "6.0.0"
+
+[package.metadata.deb]
+name = "rebi"
+maintainer = "Matteo Aguirre <https://github.com/aguirre-matteo>"
+copyright = "2024, Matteo Aguirre"
+license = "GPL-2.0"
+depends = "keyd, libgtk-3-0, libxkbcommon0, libgl1"
+section = "utils"
+priority = "optional"
+assets = [
+    ["../target/release/rebi-gui", "usr/bin/rebi-gui", "755"],
+    ["../target/release/rebi-helper", "usr/bin/rebi-helper", "755"],
+    ["../polkit/org.rebi.policy", "usr/share/polkit-1/actions/org.rebi.policy", "644"],
+    ["../polkit/org.rebi.rules", "usr/share/polkit-1/rules.d/org.rebi.rules", "644"],
+]
+
+[package.metadata.rpm]
+package = "rebi"
+
+[package.metadata.rpm.cargo]
+buildflags = ["--release"]
+
+[package.metadata.rpm.targets]
+rebi-gui = { path = "/usr/bin/rebi-gui" }
+rebi-helper = { path = "/usr/bin/rebi-helper" }
+
+[package.metadata.rpm.files]
+"../polkit/org.rebi.policy" = { path = "/usr/share/polkit-1/actions/org.rebi.policy", mode = "644" }
+"../polkit/org.rebi.rules" = { path = "/usr/share/polkit-1/rules.d/org.rebi.rules", mode = "644" }
+"../rebi.desktop" = { path = "/usr/share/applications/rebi.desktop", mode = "644" }
+"../assets/logo-dark.png" = { path = "/usr/share/icons/hicolor/scalable/apps/rebi.png", mode = "644" }
+"../assets/logo-light.png" = { path = "/usr/share/icons/hicolor/scalable/apps/rebi-light.png", mode = "644" }

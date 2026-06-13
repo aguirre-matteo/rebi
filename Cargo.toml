@@ -1,0 +1,6 @@
+[workspace]
+members = [
+  "gui",
+  "helper"
+]
+resolver = "2"

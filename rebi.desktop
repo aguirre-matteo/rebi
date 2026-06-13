@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Rebi
+Comment=Keyboard and Mouse remapping tool
+Exec=rebi-gui
+Icon=rebi
+Terminal=false
+Type=Application
+Categories=Utility;System;
+Keywords=keyboard;mouse;remap;keyd;
