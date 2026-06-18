@@ -10,6 +10,8 @@
 
 Rebi is a modern frontend for keyd, a powerful keyboard remapping daemon for Linux. It is built with Rust and the Iced GUI framework, Rebi provides an intuitive interface to manage complex keyboard and mouse remapping profiles without manual configuration file editing.
 
+<img alt="Rebi Preview" src="assets/preview.jpg">
+
 ## Features
 
 - Profile Management: Create and switch between multiple remapping profiles for different workflows.
